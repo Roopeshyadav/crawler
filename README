@@ -1,0 +1,91 @@
+DeepWebCrawler
+DeepWebCrawler crawls the given web-url till the given depth. User can submit his request and then later can fetch the result with the help of exposed APIs.
+
+Project Requirement:
+1. Java8
+2. Gradle
+
+Running
+To Run the crawler in local. Do gradle build of the project. Then One jar will be created in build->libs folder.
+Run the jar with java -jar crawler-0.0.1-SNAPSHOT.jar.
+If Its needed to increase the number of consumers running in application then provide run-time argument -DCONSUMER_POOL_SIZE=3 or something otherwise Application will start with 1 consumer only.
+It will start the Project with 3 consumers running.
+
+APIS
+1. Submit Crawl Request
+User can submit his request to crawl a webpage here.
+
+Sample input:
+curl -X POST \
+  http://localhost:8080/crawler/v1/deepcrawl \
+  -H 'cache-control: no-cache' \
+  -H 'content-type: application/json' \
+  -H 'postman-token: e064f003-d994-a487-7844-81ebc609c7ea' \
+  -d '{
+	"url":"https://en.wikipedia.org/wiki/Blog",
+	"depth":1
+}'
+
+Sample output:
+{
+    "id": "056e661e-2d98-425a-8fac-8ab00f02a8ba"
+}
+
+Now This id is the token for the given request.
+
+2. Check Status
+User can check the status of multiple submitted requests using this API.
+
+Sample request:
+curl -X POST \
+  http://localhost:8080/crawler/v1/status \
+  -H 'cache-control: no-cache' \
+  -H 'content-type: application/json' \
+  -H 'postman-token: 8772e720-bad8-68aa-86aa-20df7128927f' \
+  -d '{
+ "requestIds": ["16638793-5d82-4842-9533-9313c2ee6509", "8a2e5fdc-c8db-47bf-9ebd-fdbaf52742f9", "7f931e3d-17c7-4350-a4e7-571b2450e610"]
+}'
+
+Sample response:
+{
+    "status_details": [
+        {
+            "id": "16638793-5d82-4842-9533-9313c2ee6509",
+            "status": "PROCESSED"
+        },
+        {
+            "id": "8a2e5fdc-c8db-47bf-9ebd-fdbaf52742f9",
+            "status": null
+        },
+        {
+            "id": "7f931e3d-17c7-4350-a4e7-571b2450e610",
+            "status": null
+        }
+    ]
+}
+
+3. Get CrawledData
+User can use this API to get the crawled data of his request.
+
+Sample request:
+curl -X POST \
+  http://localhost:8080/crawler/v1/data \
+  -H 'cache-control: no-cache' \
+  -H 'content-type: application/json' \
+  -H 'postman-token: b260e8f1-5f5c-0c06-bd88-7053908970ad' \
+  -d '{
+	"id":"07bb920f-15dc-4e9b-88db-6311f7395d38"
+}'
+
+Sample response:
+{
+    "total_links": 1,
+    "total_images": 20,
+    "details": [
+        {
+            "pageLink": "https://en.wikipedia.org/wiki/Blog",
+            "pageTitle": "Blog - Wikipedia",
+            "image_count": 20
+        }
+    ]
+}

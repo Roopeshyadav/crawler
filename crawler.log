@@ -1,0 +1,15 @@
+2020-01-22 02:41:00,631 INFO  [main] [com.roopesh.crawler.CrawlerApplication  ] request_id= Starting CrawlerApplication on LM0000870 with PID 86520 (/Users/roopesh.yadav/Desktop/workspace2/crawler/build/classes/java/main started by roopesh.yadav in /Users/roopesh.yadav/Desktop/workspace2/crawler)
+2020-01-22 02:41:00,633 INFO  [main] [com.roopesh.crawler.CrawlerApplication  ] request_id= No active profile set, falling back to default profiles: default
+2020-01-22 02:41:01,384 INFO  [main] [o.s.b.w.embedded.tomcat.TomcatWebServer ] request_id= Tomcat initialized with port(s): 8080 (http)
+2020-01-22 02:41:01,391 INFO  [main] [o.apache.catalina.core.StandardService  ] request_id= Starting service [Tomcat]
+2020-01-22 02:41:01,391 INFO  [main] [org.apache.catalina.core.StandardEngine ] request_id= Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-01-22 02:41:01,440 INFO  [main] [o.a.c.c.C.[.[localhost].[/crawler]      ] request_id= Initializing Spring embedded WebApplicationContext
+2020-01-22 02:41:01,440 INFO  [main] [o.s.web.context.ContextLoader           ] request_id= Root WebApplicationContext: initialization completed in 782 ms
+2020-01-22 02:41:01,564 INFO  [main] [c.r.c.service.impl.ConsumerServiceImpl  ] request_id= jsoupTimeOut: 5000
+2020-01-22 02:41:01,565 INFO  [main] [c.r.c.service.impl.ConsumerServiceImpl  ] request_id= No. of consumers running: 1
+2020-01-22 02:41:01,565 INFO  [Thread-2] [c.r.c.service.impl.ConsumerServiceImpl  ] request_id= started consuming
+2020-01-22 02:41:01,677 INFO  [main] [o.s.s.concurrent.ThreadPoolTaskExecutor ] request_id= Initializing ExecutorService 'applicationTaskExecutor'
+2020-01-22 02:41:01,823 INFO  [main] [o.s.b.a.e.web.EndpointLinksResolver     ] request_id= Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-01-22 02:41:01,876 INFO  [main] [o.s.b.w.embedded.tomcat.TomcatWebServer ] request_id= Tomcat started on port(s): 8080 (http) with context path '/crawler'
+2020-01-22 02:41:01,878 INFO  [main] [com.roopesh.crawler.CrawlerApplication  ] request_id= Started CrawlerApplication in 1.59 seconds (JVM running for 1.871)
+2020-01-22 02:42:34,947 INFO  [SpringContextShutdownHook] [o.s.s.concurrent.ThreadPoolTaskExecutor ] request_id= Shutting down ExecutorService 'applicationTaskExecutor'
